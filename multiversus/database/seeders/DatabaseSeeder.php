@@ -1,4 +1,5 @@
 <?php
+// Para popular as tabelas;
 
 namespace Database\Seeders;
 

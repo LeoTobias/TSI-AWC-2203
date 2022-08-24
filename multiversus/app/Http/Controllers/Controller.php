@@ -1,4 +1,5 @@
 <?php
+// Trata as regras de negócio
 
 namespace App\Http\Controllers;
 
