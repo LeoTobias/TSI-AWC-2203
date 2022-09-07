@@ -16,4 +16,9 @@ class ProdutosVenda extends Model
                             'valor'];
 
     protected $table = 'produtosVenda';
+
+    // public function vendas()
+    // {
+    //     return $this->
+    // }
 }

@@ -14,4 +14,9 @@ class Vendedores extends Model
                             'nome'];
 
     protected $table = 'vendedores';
+
+    public function getVenda()
+    {
+        return $this->hasMany( Vendas::class, 'id');
+    }
 }
