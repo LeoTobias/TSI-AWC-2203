@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClienteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,5 @@ Route::get('/avisos', function () {
 
     return view('avisos', $avisos);
 });
+
+Route::resource('/clientes', App\Http\Controllers\ClienteController::class);
