@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClienteController;
-use App\Http\Controllers\VendedoresController;
 use App\Http\Controllers\ProdutoController;
+use App\Http\Controllers\VendedoresController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,27 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/avisos', function () {
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-    /*
-        Comandos XPTOs
-    */
+require __DIR__.'/auth.php';
 
-    $avisos = [ 'avisos' => [0 => [ 'data'      => '06/09/2022',
-                                    'aviso'     => 'Amanhã será o bicentenário da independencia do Brasil',
-                                    'exibir'    => true],
 
-                            1 => [  'data'      => '05/09/2022',
-                                    'aviso'     => 'Depois de amanhã será o bicentenário da independencia do Brasil',
-                                    'exibir'    => true],
-
-                            2 => [  'data'      => '04/09/2022',
-                                    'aviso'     => 'Depois de depois amanhã será o bicentenário da independencia do Brasil',
-                                    'exibir'    => true]]];
-
-    return view('avisos', $avisos);
-});
-
-Route::resource('/clientes', App\Http\Controllers\ClienteController::class);
-Route::resource('/vendedores', App\Http\Controllers\VendedoresController::class);
-Route::resource('/produtos', App\Http\Controllers\ProdutoController::class);
+Route::resource('/clientes', App\Http\Controllers\ClienteController::class)->middleware(['auth']);
+Route::resource('/produtos', App\Http\Controllers\ProdutoController::class)->middleware(['auth']);
+Route::resource('/vendedores', App\Http\Controllers\VendedoresController::class)->middleware(['auth']);
