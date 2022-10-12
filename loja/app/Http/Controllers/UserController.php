@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;//Doc.-https://laravel.com/docs/master/helpersuse
-use App\User;
+use App\Models\User;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;

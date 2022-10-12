@@ -15,19 +15,38 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('clientes.index')" :active="request()->routeIs('dashboard')">
                         {{ __('Clientes') }}
                     </x-nav-link>
+                </div>
 
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('vendedores.index')" :active="request()->routeIs('dashboard')">
                         {{ __('Vendedores') }}
                     </x-nav-link>
+                </div>
 
+                {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('produtos.index')" :active="request()->routeIs('dashboard')">
                         {{ __('Produtos') }}
                     </x-nav-link>
+                </div> --}}
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('users.index')" :active="request()->routeIs('dashboard')">
+                        {{ __('Usuários') }}
+                    </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('roles.index')" :active="request()->routeIs('dashboard')">
+                        {{ __('Perfis') }}
+                    </x-nav-link>
+                </div>
+
             </div>
 
             <!-- Settings Dropdown -->

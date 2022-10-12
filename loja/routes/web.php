@@ -26,7 +26,16 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-
+/*
 Route::resource('/clientes', App\Http\Controllers\ClienteController::class)->middleware(['auth']);
 Route::resource('/produtos', App\Http\Controllers\ProdutoController::class)->middleware(['auth']);
 Route::resource('/vendedores', App\Http\Controllers\VendedoresController::class)->middleware(['auth']);
+*/
+
+Route::group(['middleware' => ['auth']], function(){
+
+    Route::resource('/users', App\Http\Controllers\UserController::class);
+    Route::resource('/roles', App\Http\Controllers\RoleController::class);
+    Route::resource('/clientes', App\Http\Controllers\ClienteController::class);
+    Route::resource('/vendedores', App\Http\Controllers\VendedoresController::class);
+});
