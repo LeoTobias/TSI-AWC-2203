@@ -10,6 +10,18 @@ class VendedoresController extends Controller
 
     private $qtdPorPagina = 5;
 
+    public function __construct()
+    {
+        $this->middleware(  'permission:vendedores-list|vendedores-create|vendedores-edit|vendedores-delete',
+                            ['only' => ['index', 'store']]);
+        $this->middleware(  'permission:vendedores-create',
+                            ['only' => ['create', 'store']]);
+        $this->middleware(  'permission:vendedores-edit',
+                            ['only' => ['edit', 'update']]);
+        $this->middleware(  'permission:vendedores-delete',
+                            ['only' => ['destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      *

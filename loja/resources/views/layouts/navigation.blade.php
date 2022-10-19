@@ -23,11 +23,13 @@
                     </x-nav-link>
                 </div>
 
+                @can('vendedores-list')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('vendedores.index')" :active="request()->routeIs('dashboard')">
                         {{ __('Vendedores') }}
                     </x-nav-link>
                 </div>
+                @endcan
 
                 {{-- <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('produtos.index')" :active="request()->routeIs('dashboard')">
@@ -41,11 +43,13 @@
                     </x-nav-link>
                 </div>
 
+                @can('role-list')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('roles.index')" :active="request()->routeIs('dashboard')">
                         {{ __('Perfis') }}
                     </x-nav-link>
                 </div>
+                @endcan
 
             </div>
 

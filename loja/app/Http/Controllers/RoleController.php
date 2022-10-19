@@ -57,7 +57,7 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $this-validate($request, [  'name' => 'required|unique:roles,name',
+        $this->validate($request, [  'name' => 'required|unique:roles,name',
                                     'permission' => 'required']);
 
         $role = Role::create(['name' => $request->input('name')]);
@@ -83,7 +83,7 @@ class RoleController extends Controller
                                                 ->where("role_has_permissions.role_id", $id)
                                                     ->get();
 
-        return view('roles-show', compact('role', 'rolePermissions'));
+        return view('roles.show', compact('role', 'rolePermissions'));
     }
 
     /**
