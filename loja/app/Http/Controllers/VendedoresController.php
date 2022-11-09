@@ -119,4 +119,47 @@ class VendedoresController extends Controller
 
         return redirect()->route('vendedores.index')->with('success', 'Vendedor apagado com sucesso');
     }
+
+    public function checkVendedor(int $x)
+    {
+        if ($x <= 1){
+            return true;
+        }
+        return false;
+    }
+
+    public function existeVendedor(string $nome):bool
+    {
+        //Só para simular nosso DB
+        $vendedores = ['Paula', 'Matheus', 'Amanda', 'José'];
+
+        if( in_array( $nome, $vendedores) ){
+            return true;
+        }
+        return false;
+    }
+
+    public function getVendedor(int $id):?string
+    {
+        //Só para simular nosso DB
+        $vendedores = [1 => 'Paula', 2 => 'Romeu', 3 => 'Amanda', 4 => 'José'];
+
+        if( isset($vendedores[$id]) ){
+            return $vendedores[$id];
+        }
+        return null;
+    }
+
+    public function getVendedorJson(int $id):?string
+    {
+                //Só para simular nosso DB
+                $vendedores = [1 => 'Paula', 2 => 'Romeu', 3 => 'Amanda', 4 => 'José'];
+
+                if( isset($vendedores[$id]) ){
+                    return json_encode($vendedores[$id]);
+
+                }
+                return null;
+    }
+
 }
